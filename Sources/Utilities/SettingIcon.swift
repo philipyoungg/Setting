@@ -32,7 +32,6 @@ public struct SettingIconView: View {
     public var body: some View {
         switch icon {
         case .system(let icon, let foregroundColor, let backgroundColor):
-            Image(icon)
             MaybeSystemImage(systemName: icon)
                 .foregroundColor(foregroundColor)
                 .font(.footnote)

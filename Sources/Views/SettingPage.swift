@@ -207,8 +207,8 @@ public struct SettingPagePreviewView: View {
                 .padding(.vertical, verticalPadding)
 
             // TODO
-//            Image(systemName: indicator)
-//                .foregroundColor(SettingTheme.secondaryLabelColor)
+            MaybeSystemImage(systemName: indicator)
+                .foregroundColor(SettingTheme.secondaryLabelColor)
         }
         .padding(.horizontal, horizontalPadding)
         .accessibilityElement(children: .combine)

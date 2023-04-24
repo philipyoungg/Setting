@@ -32,7 +32,8 @@ extension Color {
 
         #if os(iOS)
 
-            let color = UIColor(self)
+//            let color = UIColor(self)
+        let color = UIColor()
 
             if color.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha) {
                 fRed = fRed.clamped(to: 0 ... 1)
@@ -51,7 +52,8 @@ extension Color {
                 return nil
             }
         #else
-            let color = NSColor(self)
+//            let color = NSColor(self)
+        let color = NSColor()
 
             color.getRed(&fRed, green: &fGreen, blue: &fBlue, alpha: &fAlpha)
             fRed = fRed.clamped(to: 0 ... 1)

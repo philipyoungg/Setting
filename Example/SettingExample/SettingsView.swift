@@ -17,7 +17,6 @@ struct SettingsView: View {
                     SettingPage(title: "General") {}
                         .previewIcon("gearshape.fill")
                 }
-
                 SettingGroup {
                     SettingPage(title: "Privacy") {}
                         .previewIcon("hand.raised.fill", color: .green)
@@ -33,7 +32,7 @@ struct SettingsView: View {
                     SettingPage(title: "Widgets") {}
                         .previewIcon("square.grid.2x2.fill", color: .orange)
                     SettingPage(title: "About") {}
-                        .previewIcon("person.fill", color: .teal)
+                        .previewIcon("person.fill", color: .green)
                 }
             }
         }

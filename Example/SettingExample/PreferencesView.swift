@@ -10,22 +10,22 @@ import Setting
 import SwiftUI
 
 class PreferencesViewModel: ObservableObject {
-    @AppStorage("languageIndex") var languageIndex = 0
-    @AppStorage("turboMode") var turboMode = true
-    @AppStorage("brightness") var brightness = Double(50)
-    @AppStorage("iconIndex") var iconIndex = 0
-    @AppStorage("modeIndex") var modeIndex = 0
-    @AppStorage("enableNotifications") var enableNotifications = true
-    @AppStorage("notificationIndex") var notificationIndex = 0
-    @AppStorage("notificationPromo") var notificationPromo = true
-    @AppStorage("notificationUpdates") var notificationUpdates = true
-    @AppStorage("color") var color = 0xFF3100
-    @AppStorage("text") var text = ""
+    @Published var languageIndex = 0
+    @Published var turboMode = true
+    @Published var brightness = Double(50)
+    @Published var iconIndex = 0
+    @Published var modeIndex = 0
+    @Published var enableNotifications = true
+    @Published var notificationIndex = 0
+    @Published var notificationPromo = true
+    @Published var notificationUpdates = true
+    @Published var color = 0xFF3100
+    @Published var text = ""
     @Published var showingAlert = false
 }
 
 struct PreferencesView: View {
-    @StateObject var model = PreferencesViewModel()
+    @ObservedObject var model = PreferencesViewModel()
 
     var body: some View {
         SettingStack(isSearchable: false) { // if you want to show the searchbar just change the condition to true
@@ -39,8 +39,8 @@ struct PreferencesView: View {
                     ) {
                         SettingCustomView(id: "Header View") {
                             VStack(spacing: 10) {
-                                Image(systemName: "gearshape.fill")
-                                    .font(.largeTitle)
+//                                Image(systemName: "gearshape.fill")
+//                                    .font(.largeTitle)
 
                                 Text("Welcome to Setting!")
                                     .font(.headline)
@@ -94,7 +94,7 @@ struct PreferencesView: View {
                         }
 
                         SettingGroup(header: "Brightness", footer: "Selected brightness: \(Int(model.brightness))") {
-                            SettingSlider(value: $model.brightness, range: 0 ... 100, minimumImage: Image(systemName: "sun.min"), maximumImage: Image(systemName: "sun.max"))
+//                            SettingSlider(value: $model.brightness, range: 0 ... 100, minimumImage: Image(systemName: "sun.min"), maximumImage: Image(systemName: "sun.max"))
                         }
 
                         SettingGroup(header: "Super customizable!") {
@@ -222,15 +222,15 @@ struct PreferencesView: View {
                             SettingText(title: "Choose a Color")
 
                             SettingCustomView(id: "Color Picker") {
-                                let binding = Binding {
-                                    Color(hex: model.color)
-                                } set: { newValue in
-                                    model.color = Int(newValue.hex)
-                                }
+//                                let binding = Binding {
+//                                    Color(hex: model.color)
+//                                } set: { newValue in
+//                                    model.color = Int(newValue.hex)
+//                                }
 
-                                ColorPicker("Color", selection: binding)
-                                    .padding(.horizontal, 16)
-                                    .padding(.vertical, 10)
+//                                ColorPicker("Color", selection: binding)
+//                                    .padding(.horizontal, 16)
+//                                    .padding(.vertical, 10)
                             }
                         }
                     }
@@ -270,7 +270,7 @@ struct PreferencesView: View {
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 20)
                         .padding(.horizontal, 20)
-                        .background {
+                        .background (
                             LinearGradient(
                                 colors: [
                                     Color(hex: 0xFF00C7),
@@ -280,7 +280,7 @@ struct PreferencesView: View {
                                 endPoint: .topTrailing
                             )
                             .brightness(model.brightness / 200 - 0.5)
-                        }
+                        )
                         .cornerRadius(12)
                         .padding(.horizontal, 16)
                 }
@@ -308,8 +308,8 @@ struct PreferencesView: View {
                 }
             }
         }
-        .alert("Here's an alert!", isPresented: $model.showingAlert) {
-            Button("OK") {}
-        }
+//        .alert("Here's an alert!", isPresented: $model.showingAlert) {
+//            Button("OK") {}
+//        }
     }
 }

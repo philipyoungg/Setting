@@ -109,23 +109,23 @@ struct SettingPageView<Content>: View where Content: View {
     var body: some View {
         #if os(iOS)
 
-        let navigationBarTitleDisplayMode: NavigationBarItem.TitleDisplayMode = {
-            switch navigationTitleDisplayMode {
-            case .automatic:
-                if isInitialPage {
-                    return .large
-                } else {
-                    return .inline
-                }
-            case .inline:
-                return .inline
-            case .large:
-                return .large
-            }
-        }()
+//        let navigationBarTitleDisplayMode: NavigationBarItem.TitleDisplayMode = {
+//            switch navigationTitleDisplayMode {
+//            case .automatic:
+//                if isInitialPage {
+//                    return .large
+//                } else {
+//                    return .inline
+//                }
+//            case .inline:
+//                return .inline
+//            case .large:
+//                return .large
+//            }
+//        }()
 
         main
-            .navigationBarTitleDisplayMode(navigationBarTitleDisplayMode)
+//            .navigationBarTitleDisplayMode(navigationBarTitleDisplayMode)
         #else
         main
         #endif
@@ -152,7 +152,7 @@ struct SettingPageView<Content>: View where Content: View {
                 .padding(.vertical, verticalPadding)
             }
             .background(backgroundColor)
-            .navigationTitle(title)
+//            .navigationTitle(title)
         }
     }
 }
@@ -192,8 +192,9 @@ public struct SettingPagePreviewView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.vertical, verticalPadding)
 
-            Image(systemName: indicator)
-                .foregroundColor(SettingTheme.secondaryLabelColor)
+            // TODO
+//            Image(systemName: indicator)
+//                .foregroundColor(SettingTheme.secondaryLabelColor)
         }
         .padding(.horizontal, horizontalPadding)
         .accessibilityElement(children: .combine)

@@ -15,12 +15,16 @@ public struct SettingRowButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .contentShape(Rectangle())
-            .background {
-                if configuration.isPressed {
-                    SettingTheme.labelColor
-                        .opacity(0.1)
+            .background(
+                Group {
+                    if configuration.isPressed {
+                        SettingTheme.labelColor
+                            .opacity(0.1)
+                    } else {
+                        EmptyView()
+                    }
                 }
-            }
+            )
     }
 }
 

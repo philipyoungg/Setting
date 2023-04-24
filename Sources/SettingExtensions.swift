@@ -9,6 +9,7 @@
 import SwiftUI
 
 extension Range<String.Index> {
+    @available(macOS 12, iOS 15, *)
     func attributedRange(for attributedString: AttributedString) -> Range<AttributedString.Index>? {
         let start = AttributedString.Index(lowerBound, within: attributedString)
         let end = AttributedString.Index(upperBound, within: attributedString)

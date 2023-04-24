@@ -23,7 +23,7 @@ public struct SettingStack: View {
      */
     public var customNoResultsView: AnyView?
 
-    @StateObject var settingViewModel = SettingViewModel()
+    @ObservedObject var settingViewModel = SettingViewModel()
 
     /**
      Whether the ``SettingStack`` should automatically embed in a ``NavigationStack`` / ``NavigationView``, or assume the view exists higher up
@@ -65,7 +65,7 @@ public struct SettingStack: View {
         page: @escaping () -> SettingPage,
         @ViewBuilder customNoResultsView: @escaping () -> Content
     ) where Content: View {
-        self._settingViewModel = StateObject(wrappedValue: settingViewModel)
+        self._settingViewModel = ObservedObject(wrappedValue: settingViewModel)
         self.embedInNavigationStack = embedInNavigationStack
         self.isSearchable = isSearchable
         self.page = page
@@ -109,7 +109,9 @@ public struct SettingStack: View {
             }
         }
         .if (isSearchable) { view in
-            view.searchable(text: $settingViewModel.searchText)
+            // TODO
+            view
+//            view.searchable(text: $settingViewModel.searchText)
         }
         .environmentObject(settingViewModel)
         .onAppear {

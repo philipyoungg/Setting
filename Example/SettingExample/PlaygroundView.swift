@@ -11,8 +11,8 @@ import SwiftUI
 
 struct PlaygroundView: View {
     /// Settings supports `@State`, `@AppStorage`, `@Published`, and more!
-    @AppStorage("isOn") var isOn = true
-
+//    @AppStorage("isOn") var isOn = true
+@State var isOn = true
     var body: some View {
         /// Start things off with `SettingStack`.
         SettingStack {

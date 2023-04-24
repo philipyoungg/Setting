@@ -142,14 +142,14 @@ struct SettingPickerView: View {
                             .foregroundColor(SettingTheme.secondaryLabelColor)
                     }
 
-                    Image(systemName: "chevron.forward")
-                        .foregroundColor(SettingTheme.secondaryLabelColor)
+//                    Image(systemName: "chevron.forward")
+//                        .foregroundColor(SettingTheme.secondaryLabelColor)
                 }
                 .padding(.horizontal, horizontalPadding)
                 .accessibilityElement(children: .combine)
             }
             .buttonStyle(.row)
-            .background {
+            .background(
                 NavigationLink(isActive: $isActive) {
                     SettingPickerChoicesView(
                         title: title,
@@ -161,7 +161,7 @@ struct SettingPickerView: View {
                     EmptyView()
                 }
                 .opacity(0)
-            }
+            )
 
         case .menu:
             HStack(spacing: horizontalSpacing) {
@@ -175,13 +175,14 @@ struct SettingPickerView: View {
                         Text(choice).tag(index)
                     }
                 }
-                .pickerStyle(.menu)
+                .pickerStyle(.automatic)
+//                .pickerStyle(.menu)
                 #if os(iOS)
                     .padding(.trailing, -horizontalPadding + 2)
                 #else
                     .padding(.trailing, -2)
                 #endif
-                    .tint(SettingTheme.secondaryLabelColor)
+//                    .tint(SettingTheme.secondaryLabelColor)
             }
             .padding(.horizontal, horizontalPadding)
             .accessibilityElement(children: .combine)
@@ -196,8 +197,8 @@ struct SettingPickerView: View {
                             .padding(.vertical, choicesConfiguration.verticalPadding)
 
                         if index == selectedIndex {
-                            Image(systemName: "checkmark")
-                                .foregroundColor(.accentColor)
+//                            Image(systemName: "checkmark")
+//                                .foregroundColor(.accentColor)
                         }
                     }
                     .padding(.horizontal, choicesConfiguration.horizontalPadding)
@@ -236,8 +237,8 @@ struct SettingPickerChoicesView: View {
                                 .padding(.vertical, choicesConfiguration.verticalPadding)
 
                             if index == selectedIndex {
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(.accentColor)
+//                                Image(systemName: "checkmark")
+//                                    .foregroundColor(.accentColor)
                             }
                         }
                         .padding(.horizontal, choicesConfiguration.horizontalPadding)

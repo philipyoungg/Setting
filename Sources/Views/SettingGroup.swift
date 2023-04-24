@@ -94,8 +94,8 @@ public struct SettingGroupView<Content: View>: View {
                     }
 
                     if let header {
-                        Text(header)
-                            .textCase(.uppercase)
+                        Text(header.uppercased())
+//                            .textCase(.uppercase)
                             .font(.system(.subheadline))
                             .foregroundColor(SettingTheme.secondaryLabelColor)
                     }

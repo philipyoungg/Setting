@@ -45,14 +45,17 @@ struct SettingView: View {
                     )
                 }
                 .buttonStyle(.row)
-                .background {
+                .background(
                     NavigationLink(isActive: $isActive) {
                         SettingView(setting: page, isPagePreview: false)
                     } label: {
                         EmptyView()
                     }
                     .opacity(0)
-                }
+                )
+//                .background {
+//                    
+//                }
 
             } else {
                 SettingPageView(

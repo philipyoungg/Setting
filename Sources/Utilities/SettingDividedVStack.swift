@@ -56,11 +56,13 @@ struct SettingDividedVStackLayout: _VariadicView_UnaryViewRoot {
                 if child.id != last {
                     Divider()
                         .opacity(dividerColor == nil ? 1 : 0)
-                        .overlay {
-                            if let dividerColor {
-                                dividerColor
+                        .overlay(
+                            Group {
+                                if let dividerColor {
+                                    dividerColor
+                                }
                             }
-                        }
+                        )
                         .padding(.leading, leadingMargin)
                         .padding(.trailing, trailingMargin)
                 }

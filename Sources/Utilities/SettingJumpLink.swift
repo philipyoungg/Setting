@@ -37,40 +37,43 @@ public struct SettingJumpLink: View {
         self.verticalPadding = verticalPadding
         self.horizontalPadding = horizontalPadding
     }
-
+    
     public var body: some View {
         let destinationPage = path.settings.last(where: { $0 is SettingPage })
-
+        
         Button {
             isActive = true
         } label: {
             preview(destinationPage: destinationPage)
         }
         .buttonStyle(.row)
-        .background {
-            if let destinationPage {
-                NavigationLink(isActive: $isActive) {
-                    SettingView(setting: destinationPage, isPagePreview: false)
-                } label: {
-                    EmptyView()
+        .background(
+            Group {
+                if let destinationPage {
+                    NavigationLink(isActive: $isActive) {
+                        SettingView(setting: destinationPage, isPagePreview: false)
+                    } label: {
+                        EmptyView()
+                    }
+                    .opacity(0)
                 }
-                .opacity(0)
             }
-        }
+        )
     }
-
+    
     @ViewBuilder func preview(destinationPage: Setting?) -> some View {
         let title = getDestinationTitle()
         let titles = getPathTitles()
 
         HStack(spacing: horizontalSpacing) {
             VStack(spacing: verticalSpacing) {
-                if settingViewModel.highlightMatchingText {
-                    let highlightedText = highlightSearchText(searchText: settingViewModel.searchText, in: title)
-
-                    Text(highlightedText)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                if settingViewModel.highlightMatchingText && false {
+//                    let highlightedText = highlightSearchText(searchText: settingViewModel.searchText, in: title)
+//
+//                    Text(highlightedText)
+//                        .fixedSize(horizontal: false, vertical: true)
+//                        .frame(maxWidth: .infinity, alignment: .leading)
+                    Text(title)
                 } else {
                     Text(title)
                         .fixedSize(horizontal: false, vertical: true)
@@ -85,7 +88,7 @@ public struct SettingJumpLink: View {
                             Text(title)
 
                             if index < titles.count - 1 {
-                                Image(systemName: "arrow.right")
+//                                Image(systemName: "arrow.right")
                             }
                         }
                     }
@@ -97,8 +100,8 @@ public struct SettingJumpLink: View {
             .padding(.vertical, verticalPadding)
 
             if destinationPage != nil {
-                Image(systemName: indicator)
-                    .foregroundColor(SettingTheme.secondaryLabelColor)
+//                Image(systemName: indicator)
+//                    .foregroundColor(SettingTheme.secondaryLabelColor)
             }
         }
         .padding(.horizontal, horizontalPadding)
@@ -121,21 +124,21 @@ public struct SettingJumpLink: View {
         return ""
     }
 
-    func highlightSearchText(searchText: String, in text: String) -> AttributedString {
-        var attributedString = AttributedString(text)
-        let ranges = text.ranges(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
-
-        if ranges.isEmpty {
-            attributedString.backgroundColor = .clear
-        } else {
-            attributedString.backgroundColor = .clear
-            for range in ranges {
-                if let attributedRange = range.attributedRange(for: attributedString) {
-                    attributedString[attributedRange].backgroundColor = .accentColor.opacity(0.2)
-                }
-            }
-        }
-
-        return attributedString
-    }
+//    func highlightSearchText(searchText: String, in text: String) -> AttributedString {
+//        var attributedString = AttributedString(text)
+//        let ranges = text.ranges(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
+//
+//        if ranges.isEmpty {
+//            attributedString.backgroundColor = .clear
+//        } else {
+//            attributedString.backgroundColor = .clear
+//            for range in ranges {
+//                if let attributedRange = range.attributedRange(for: attributedString) {
+//                    attributedString[attributedRange].backgroundColor = .accentColor.opacity(0.2)
+//                }
+//            }
+//        }
+//
+//        return attributedString
+//    }
 }

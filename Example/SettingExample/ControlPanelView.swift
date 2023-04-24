@@ -23,12 +23,12 @@ struct ControlPanelView: View {
                 }
 
                 SettingGroup(header: "Volume") {
-                    SettingSlider(
-                        value: $volume,
-                        range: 0 ... 10,
-                        minimumImage: Image(systemName: "speaker.fill"),
-                        maximumImage: Image(systemName: "speaker.wave.3.fill")
-                    )
+//                    SettingSlider(
+//                        value: $volume,
+//                        range: 0 ... 10,
+//                        minimumImage: Image(systemName: "speaker.fill"),
+//                        maximumImage: Image(systemName: "speaker.wave.3.fill")
+//                    )
 
                     SettingButton(title: "Export Data") {
                         print("Data Exported!")

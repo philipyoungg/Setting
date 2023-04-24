@@ -67,12 +67,8 @@ struct SettingButtonView: View {
                     .padding(.vertical, verticalPadding)
 
                 if let indicator {
-//                    if #available(iOS 14.0, macOS 11.0, *) {
-//                        Image(systemName: indicator)
-//                            .foregroundColor(SettingTheme.secondaryLabelColor)
-//                    } else {
-//                        Color.green
-//                    }
+                    MaybeSystemImage(systemName: indicator)
+                        .foregroundColor(SettingTheme.secondaryLabelColor)
                 }
             }
             .padding(.horizontal, horizontalPadding)

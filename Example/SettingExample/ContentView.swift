@@ -9,6 +9,25 @@
 import Setting
 import SwiftUI
 
+struct MaybeLabel: View {
+    var text: String
+    var systemImage: String
+    
+    init(_ text: String, systemImage: String) {
+        self.text = text
+        self.systemImage = systemImage
+    }
+    
+    var body: some View {
+        if #available(iOS 14.0, macOS 11.0, *) {
+            Label(text, systemImage: systemImage)
+        } else {
+            Text(text)
+        }
+    }
+}
+
+
 
 struct ContentView: View {
 //    @AppStorage("selectedIndex") var selectedIndex = 1
@@ -17,29 +36,25 @@ struct ContentView: View {
         TabView(selection: $selectedIndex) {
             PreferencesView()
                 .tabItem {
-//                    Label("Preferences", systemImage: "text.book.closed")
-                    Text("Preferences")
+                    MaybeLabel("Preferences", systemImage: "text.book.closed")
                 }
                 .tag(0)
 
             SettingsView()
                 .tabItem {
-//                    Label("Settings", systemImage: "gearshape")
-                    Text("Settings")
+                    MaybeLabel("Settings", systemImage: "gearshape")
                 }
                 .tag(1)
 
             ControlPanelView()
                 .tabItem {
-//                    Label("Control Panel", systemImage: "dial.high")
-                    Text("Control Panel")
+                    MaybeLabel("Control Panel", systemImage: "dial.high")
                 }
                 .tag(2)
 
             PlaygroundView()
                 .tabItem {
-//                    Label("Playground", systemImage: "gamecontroller")
-                    Text("Playground")
+                    MaybeLabel("Playground", systemImage: "gamecontroller")
                 }
                 .tag(3)
         }

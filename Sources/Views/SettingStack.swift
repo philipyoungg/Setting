@@ -108,10 +108,17 @@ public struct SettingStack: View {
                 }
             }
         }
-        .if (isSearchable) { view in
-            // TODO
-            view
-//            view.searchable(text: $settingViewModel.searchText)
+        .modify { view in
+            if isSearchable {
+                if #available(iOS 15.0, macOS 11.0, *) {
+                    view.searchable(text: $settingViewModel.searchText)
+                } else {
+                    view
+                }
+            } else {
+                view
+            }
+            
         }
         .environmentObject(settingViewModel)
         .onAppear {

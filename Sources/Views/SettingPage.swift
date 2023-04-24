@@ -109,23 +109,30 @@ struct SettingPageView<Content>: View where Content: View {
     var body: some View {
         #if os(iOS)
 
-//        let navigationBarTitleDisplayMode: NavigationBarItem.TitleDisplayMode = {
-//            switch navigationTitleDisplayMode {
-//            case .automatic:
-//                if isInitialPage {
-//                    return .large
-//                } else {
-//                    return .inline
-//                }
-//            case .inline:
-//                return .inline
-//            case .large:
-//                return .large
-//            }
-//        }()
+        let navigationBarTitleDisplayMode: NavigationBarItem.TitleDisplayMode = {
+            switch navigationTitleDisplayMode {
+            case .automatic:
+                if isInitialPage {
+                    return .large
+                } else {
+                    return .inline
+                }
+            case .inline:
+                return .inline
+            case .large:
+                return .large
+            }
+        }()
 
         main
-//            .navigationBarTitleDisplayMode(navigationBarTitleDisplayMode)
+            .modify {
+                if #available(iOS 14.0, *) {
+                    $0.navigationBarTitleDisplayMode(navigationBarTitleDisplayMode)
+                } else {
+                    $0
+                }
+            }
+            
         #else
         main
         #endif
@@ -152,7 +159,14 @@ struct SettingPageView<Content>: View where Content: View {
                 .padding(.vertical, verticalPadding)
             }
             .background(backgroundColor)
-//            .navigationTitle(title)
+            .modify {
+                if #available(iOS 14.0, *) {
+                    $0.navigationTitle(title)
+                } else {
+                    $0
+                }
+            }
+            
         }
     }
 }

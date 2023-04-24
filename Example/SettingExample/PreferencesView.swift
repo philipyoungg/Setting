@@ -9,7 +9,24 @@
 import Setting
 import SwiftUI
 
+struct MaybeSystemImage: View {
+    var systemName: String
+    var body: some View {
+#if os(iOS)
+        Image(systemName: systemName)
+#else
+        if #available(macOS 11.0, *) {
+            Image(systemName: systemName)
+        } else {
+            EmptyView()
+        }
+#endif
+    }
+}
+
+
 class PreferencesViewModel: ObservableObject {
+    static var shared = PreferencesViewModel()
     @Published var languageIndex = 0
     @Published var turboMode = true
     @Published var brightness = Double(50)
@@ -25,7 +42,7 @@ class PreferencesViewModel: ObservableObject {
 }
 
 struct PreferencesView: View {
-    @ObservedObject var model = PreferencesViewModel()
+    @ObservedObject var model = PreferencesViewModel.shared
 
     var body: some View {
         SettingStack(isSearchable: false) { // if you want to show the searchbar just change the condition to true
@@ -39,8 +56,8 @@ struct PreferencesView: View {
                     ) {
                         SettingCustomView(id: "Header View") {
                             VStack(spacing: 10) {
-//                                Image(systemName: "gearshape.fill")
-//                                    .font(.largeTitle)
+                                MaybeSystemImage(systemName: "gearshape.fill")
+                                    .font(.largeTitle)
 
                                 Text("Welcome to Setting!")
                                     .font(.headline)

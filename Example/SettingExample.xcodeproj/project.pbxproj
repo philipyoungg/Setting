@@ -10,9 +10,7 @@
 		0C37506329F6551600BECCF6 /* SettingiOSExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C37506229F6551600BECCF6 /* SettingiOSExampleApp.swift */; };
 		0C37506729F6551700BECCF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C37506629F6551700BECCF6 /* Assets.xcassets */; };
 		0C37506A29F6551700BECCF6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C37506929F6551700BECCF6 /* Preview Assets.xcassets */; };
-		0C63E99129F62CB100B6A1E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63E99029F62CB100B6A1E1 /* SceneDelegate.swift */; };
-		0C63E99229F62CB100B6A1E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63E98E29F62CB100B6A1E1 /* AppDelegate.swift */; };
-		0C63E99329F62CB100B6A1E1 /* _main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63E98F29F62CB100B6A1E1 /* _main.swift */; };
+		0C63E99329F62CB100B6A1E1 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C63E98F29F62CB100B6A1E1 /* main.swift */; };
 		0CAC897229F655C800EA3BF9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD8B78D29A683D100463C48 /* ContentView.swift */; };
 		0CAC897329F655C800EA3BF9 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25FE2329A6D2A300C11678 /* PlaygroundView.swift */; };
 		0CAC897429F655C800EA3BF9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C25FE1E29A6B0D700C11678 /* SettingsView.swift */; };
@@ -38,9 +36,7 @@
 		0C37506629F6551700BECCF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C37506929F6551700BECCF6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0C37506E29F6556C00BECCF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		0C63E98E29F62CB100B6A1E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0C63E98F29F62CB100B6A1E1 /* _main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _main.swift; sourceTree = "<group>"; };
-		0C63E99029F62CB100B6A1E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		0C63E98F29F62CB100B6A1E1 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		3C25FE1A29A6B06C00C11678 /* PreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesView.swift; sourceTree = "<group>"; };
 		3C25FE1C29A6B0AF00C11678 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		3C25FE1E29A6B0D700C11678 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -132,9 +128,7 @@
 				3C25FE1C29A6B0AF00C11678 /* Utilities.swift */,
 				3CD8B78F29A683D300463C48 /* Assets.xcassets */,
 				3CD8B79129A683D300463C48 /* SettingExample.entitlements */,
-				0C63E98F29F62CB100B6A1E1 /* _main.swift */,
-				0C63E98E29F62CB100B6A1E1 /* AppDelegate.swift */,
-				0C63E99029F62CB100B6A1E1 /* SceneDelegate.swift */,
+				0C63E98F29F62CB100B6A1E1 /* main.swift */,
 			);
 			path = SettingExample;
 			sourceTree = "<group>";
@@ -264,14 +258,12 @@
 			files = (
 				3C25FE2429A6D2A300C11678 /* PlaygroundView.swift in Sources */,
 				3C25FE1B29A6B06C00C11678 /* PreferencesView.swift in Sources */,
-				0C63E99329F62CB100B6A1E1 /* _main.swift in Sources */,
+				0C63E99329F62CB100B6A1E1 /* main.swift in Sources */,
 				3CD8B78E29A683D100463C48 /* ContentView.swift in Sources */,
-				0C63E99229F62CB100B6A1E1 /* AppDelegate.swift in Sources */,
 				3C25FE1F29A6B0D700C11678 /* SettingsView.swift in Sources */,
 				3C25FE2229A6C24C00C11678 /* ControlPanelView.swift in Sources */,
 				3C25FE1D29A6B0AF00C11678 /* Utilities.swift in Sources */,
 				3CD8B78C29A683D100463C48 /* SettingExampleApp.swift in Sources */,
-				0C63E99129F62CB100B6A1E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

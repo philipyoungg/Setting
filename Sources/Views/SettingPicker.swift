@@ -177,7 +177,7 @@ struct SettingPickerView: View {
                 }
                 .pickerStyle(.automatic)
                 .modify {
-                    if #available(iOS 14.0, *) {
+                    if #available(iOS 14.0, macOS 11.0, *) {
                         $0.pickerStyle(.menu)
                     } else {
                         $0
@@ -189,7 +189,7 @@ struct SettingPickerView: View {
                     .padding(.trailing, -2)
                 #endif
                     .modify {
-                        if #available(iOS 16.0, *) {
+                        if #available(iOS 16.0, macOS 13.0, *) {
                             $0.tint(SettingTheme.secondaryLabelColor)
                         }
                     }

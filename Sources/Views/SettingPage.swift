@@ -160,7 +160,7 @@ struct SettingPageView<Content>: View where Content: View {
             }
             .background(backgroundColor)
             .modify {
-                if #available(iOS 14.0, *) {
+                if #available(iOS 14.0, macOS 11.0, *) {
                     $0.navigationTitle(title)
                 } else {
                     $0

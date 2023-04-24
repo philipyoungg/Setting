@@ -110,7 +110,7 @@ public struct SettingStack: View {
         }
         .modify { view in
             if isSearchable {
-                if #available(iOS 15.0, macOS 11.0, *) {
+                if #available(iOS 15.0, macOS 12.0, *) {
                     view.searchable(text: $settingViewModel.searchText)
                 } else {
                     view

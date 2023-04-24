@@ -68,7 +68,7 @@ public struct SettingJumpLink: View {
         HStack(spacing: horizontalSpacing) {
             VStack(spacing: verticalSpacing) {
                 if settingViewModel.highlightMatchingText {
-                    if #available(iOS 15.0, *) {
+                    if #available(iOS 15.0, macOS 12.0, *) {
                         let highlightedText = highlightSearchText(searchText: settingViewModel.searchText, in: title)
                         Text(highlightedText)
                             .fixedSize(horizontal: false, vertical: true)
@@ -128,7 +128,7 @@ public struct SettingJumpLink: View {
         return ""
     }
 
-    @available(iOS 15, *)
+    @available(iOS 15, macOS 12, *)
     func highlightSearchText(searchText: String, in text: String) -> AttributedString {
         var attributedString = AttributedString(text)
         let ranges = text.ranges(of: searchText, options: [.caseInsensitive, .diacriticInsensitive])
